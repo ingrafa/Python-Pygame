@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego de Adivinanzas</title>
+</head>
+<body>
+    <h1>Juego de Adivinanzas</h1>
+    <p>Intenta adivinar un número entre 1 y 100.</p>
+    <input type="text" id="guessField">
+    <button onclick="checkGuess()">Enviar</button>
+    <p id="message"></p>
+
+    <script>
+        // Generar un número aleatorio entre 1 y 100
+        var secretNumber = Math.floor(Math.random() * 100) + 1;
+
+        function checkGuess() {
+            var guess = parseInt(document.getElementById("guessField").value);
+            var message = document.getElementById("message");
+
+            if (guess === secretNumber) {
+                message.textContent = "¡Felicidades! ¡Adivinaste el número!";
+            } else if (guess < secretNumber) {
+                message.textContent = "Intenta de nuevo. El número es más alto.";
+            } else if (guess > secretNumber) {
+                message.textContent = "Intenta de nuevo. El número es más bajo.";
+            }
+        }
+    </script>
+</body>
+</html>
